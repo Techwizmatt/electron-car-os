@@ -17,6 +17,7 @@ magnetCurs.init = function(params) {
     }
     magnetCurs.targetable_list = document.getElementsByClassName('targetable');
     magnetCurs.moveEnable = !0;
+    magnetCurs.sens = 20;
     magnetCurs.attached = false;
     magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
     document.addEventListener('mousemove', function(e) {
@@ -27,6 +28,21 @@ magnetCurs.init = function(params) {
             magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
         } else {
             document.getElementById('cursor').style.display = "block";
+
+            var xmovement = e.movementX;
+            var ymovement = e.movementY;
+
+            if (xmovement < 0) {
+                xmovement = xmovement * -1;
+            }
+
+            if (ymovement < 0) {
+                ymovement = ymovement * -1;
+            }
+
+            if(xmovement >= magnetCurs.sens || ymovement >= magnetCurs.sens){
+                document.exitPointerLock();
+            }
         }
 
         if (magnetCurs.moveEnable) {
@@ -56,6 +72,9 @@ magnetCurs.init = function(params) {
     for (let index = 0; index < magnetCurs.targetable_list.length; index++) {
         const element = magnetCurs.targetable_list[index];
         element.addEventListener('mouseenter', function(e) {
+
+            document.body.requestPointerLock();
+
             magnetCurs.moveEnable = !1;
             magnetCurs.cursor.classList.add('magnet');
             let currentButton = e.currentTarget;
@@ -86,7 +105,6 @@ magnetCurs.init = function(params) {
             //    Slow down the mouse speed here
             magnetCurs.attached = true;
             magnetCurs.pointar.style.display = "none";
-            ipcRenderer.send('mouse-speed', 'slow');
         });
         element.addEventListener('mouseleave', function(e) {
             magnetCurs.moveEnable = !0;
@@ -98,7 +116,6 @@ magnetCurs.init = function(params) {
             //    Reset the mouse speed here
             magnetCurs.attached = false;
             magnetCurs.pointar.style.display = "block";
-            ipcRenderer.send('mouse-speed', 'reset');
         })
     }
     if (params.click) {

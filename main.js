@@ -19,11 +19,3 @@ function createWindow () {
 }
 
 app.on('ready', createWindow);
-
-ipcMain.on('mouse-speed', (event, arg) => {
-    if (arg == "slow") {
-        console.log("Slowing down cursor");
-    } else if (arg == "reset") {
-        console.log("Resetting the cursor speed");
-    }
-});

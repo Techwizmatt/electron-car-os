@@ -15,6 +15,7 @@ function createWindow () {
 
     // Load the home page.
     win.loadFile('index.html')
+    win.toggleDevTools()
 
 }
 

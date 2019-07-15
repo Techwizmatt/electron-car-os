@@ -17,7 +17,7 @@ magnetCurs.init = function(params) {
     }
     magnetCurs.targetable_list = document.getElementsByClassName('targetable');
     magnetCurs.moveEnable = !0;
-    magnetCurs.sens = 20;
+    magnetCurs.sens = 10; //Magnetivety level
     magnetCurs.attached = false;
     magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
     document.addEventListener('mousemove', function(e) {

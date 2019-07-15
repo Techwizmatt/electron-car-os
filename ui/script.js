@@ -39,7 +39,7 @@ var object_watch = {
             {
                 if(typeof object_watch.cache[k] == "undefined" | object_watch.cache[k] != v)
                 {
-                    window.settingsEvent(k, v);
+                    $(document).trigger(k, [v]);
                 }
             });
             fs.writeFile(settings_file, JSON.stringify(settings), function(err)

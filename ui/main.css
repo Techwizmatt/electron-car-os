@@ -1,8 +1,9 @@
 body{
-    background-size:20% auto;
+    background-size:20% auto !important;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: white;
 }
 .targetable{
     padding: 8px;
@@ -10,6 +11,7 @@ body{
     outline: none;
     background: #00a8ff;
     border: 0;
+    color: white;
 }
 .menu{
     float:left;

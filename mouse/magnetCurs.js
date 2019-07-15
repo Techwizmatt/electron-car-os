@@ -17,7 +17,18 @@ magnetCurs.init = function(params) {
     }
     magnetCurs.targetable_list = document.getElementsByClassName('targetable');
     magnetCurs.moveEnable = !0;
+    magnetCurs.attached = false;
+    magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
     document.addEventListener('mousemove', function(e) {
+        clearTimeout(magnetCurs.timeout);
+        if (!magnetCurs.attached) {
+            document.getElementById('cursor').style.display = "block";
+            document.getElementById('pointer').style.display = "block";
+            magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
+        } else {
+            document.getElementById('cursor').style.display = "block";
+        }
+
         if (magnetCurs.moveEnable) {
             magnetCurs.cursor.style.left = e.clientX + 'px';
             magnetCurs.cursor.style.top = e.clientY + 'px';
@@ -73,6 +84,7 @@ magnetCurs.init = function(params) {
             magnetCurs.cursor.style.margin = "0";
             magnetCurs.cursor.style.borderRadius = (cssProperty.borderRadius + 0) + 'px'
             //    Slow down the mouse speed here
+            magnetCurs.attached = true;
             magnetCurs.pointar.style.display = "none";
             ipcRenderer.send('mouse-speed', 'slow');
         });
@@ -84,6 +96,7 @@ magnetCurs.init = function(params) {
             magnetCurs.cursor.style.margin = '';
             magnetCurs.cursor.style.borderRadius = ''
             //    Reset the mouse speed here
+            magnetCurs.attached = false;
             magnetCurs.pointar.style.display = "block";
             ipcRenderer.send('mouse-speed', 'reset');
         })
@@ -106,7 +119,6 @@ magnetCurs.init = function(params) {
             }, time)
         })
     }
-
 }
 magnetCurs.error = function(string) {
     console.error('Magnetic Cursor : ' + string)
@@ -117,17 +129,4 @@ magnetCurs.init({
     spacing:8,
     pointer:true,
     shockable:1
-});
-
-$(function() {
-    var timeout;
-    document.onmousemove = function(){
-        clearTimeout(timeout);
-        $("#cursor").fadeIn("fast");
-        $("#pointer").fadeIn("fast");
-        timeout = setTimeout(function(){
-            $("#cursor").fadeOut("fast");
-            $("#pointer").fadeOut("fast");
-        }, 5000);
-    }
 });

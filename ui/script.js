@@ -66,7 +66,9 @@ function loadContent(page)
     {
         $('.content').load('pages/' + page + '.html', function()
         {
-            $('.content').fadeIn(300);
+            $('.content').fadeIn(300, function(){
+                magnetCurs.refresh();
+            });
         });
     }, 300);
 }

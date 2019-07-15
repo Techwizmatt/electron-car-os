@@ -5,6 +5,9 @@ magnetCurs.init = function(params) {
     if (!params) {
         params = {}
     }
+
+    magnetCurs.params = params;
+
     document.body.insertAdjacentHTML('afterbegin', '<div id="cursor"></div>');
     magnetCurs.cursor = document.getElementById('cursor');
     magnetCurs.cursor.style.position = "fixed"
@@ -69,8 +72,44 @@ magnetCurs.init = function(params) {
             magnetCurs.pointar.style.top = e.clientY + 'px'
         }
     });
+
+
+    //Mouse enter and leave listener
+    magnetCurs.mouseListener();
+
+    if (params.click) {
+        document.addEventListener('click', function(e) {
+
+            var clickHandle = $( ".magnetized" ).attr('click');
+
+            console.log(eval(clickHandle));
+
+
+            let time = 700;
+            if (typeof params.click == 'number') {
+                if (params.click > 0) {
+                    time = params.click
+                } else {
+                    magnetCurs.error("click params need to be more than 0")
+                }
+            } else {
+                magnetCurs.error("click params need to be a number")
+            }
+            magnetCurs.cursor.style.animation = "cursorClick " + time + "ms";
+            setTimeout(() => {
+                magnetCurs.cursor.style.animation = ""
+            }, time)
+        })
+    }
+}
+
+magnetCurs.mouseListener = function(){
+
+    magnetCurs.targetable_list = document.getElementsByClassName('targetable');
+
     for (let index = 0; index < magnetCurs.targetable_list.length; index++) {
         const element = magnetCurs.targetable_list[index];
+
         element.addEventListener('mouseenter', function(e) {
 
             document.body.requestPointerLock();
@@ -81,10 +120,10 @@ magnetCurs.init = function(params) {
             magnetCurs.cursor.classList.add('magnet');
             let currentButton = e.currentTarget;
             let spacing = 10;
-            if (params.spacing) {
-                if (typeof params.spacing == 'number') {
-                    if (params.spacing > 0) {
-                        spacing = params.spacing
+            if (magnetCurs.params.spacing) {
+                if (typeof magnetCurs.params.spacing == 'number') {
+                    if (magnetCurs.params.spacing > 0) {
+                        spacing = magnetCurs.params.spacing
                     } else {
                         magnetCurs.error("spacing params need to be more than 0")
                     }
@@ -121,35 +160,17 @@ magnetCurs.init = function(params) {
             //    Reset the mouse speed here
             magnetCurs.attached = false;
             magnetCurs.pointar.style.display = "block";
-        })
-    }
-    if (params.click) {
-        document.addEventListener('click', function(e) {
-
-            var clickHandle = $( ".magnetized" ).attr('click');
-
-            console.log(eval(clickHandle));
-
-
-            let time = 700;
-            if (typeof params.click == 'number') {
-                if (params.click > 0) {
-                    time = params.click
-                } else {
-                    magnetCurs.error("click params need to be more than 0")
-                }
-            } else {
-                magnetCurs.error("click params need to be a number")
-            }
-            magnetCurs.cursor.style.animation = "cursorClick " + time + "ms";
-            setTimeout(() => {
-                magnetCurs.cursor.style.animation = ""
-            }, time)
-        })
+        });
     }
 }
+
 magnetCurs.error = function(string) {
     console.error('Magnetic Cursor : ' + string)
+}
+
+
+magnetCurs.refresh = function(){
+    magnetCurs.mouseListener();
 }
 
 magnetCurs.init({

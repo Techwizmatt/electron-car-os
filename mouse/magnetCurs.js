@@ -128,7 +128,8 @@ magnetCurs.init = function(params) {
 
             var clickHandle = $( ".magnetized" ).attr('click');
 
-            console.log(clickHandle);
+            console.log(eval(clickHandle));
+
 
             let time = 700;
             if (typeof params.click == 'number') {

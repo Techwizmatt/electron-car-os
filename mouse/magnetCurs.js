@@ -75,6 +75,8 @@ magnetCurs.init = function(params) {
 
             document.body.requestPointerLock();
 
+            element.classList.add('magnetized');
+
             magnetCurs.moveEnable = !1;
             magnetCurs.cursor.classList.add('magnet');
             let currentButton = e.currentTarget;
@@ -107,6 +109,9 @@ magnetCurs.init = function(params) {
             magnetCurs.pointar.style.display = "none";
         });
         element.addEventListener('mouseleave', function(e) {
+
+            element.classList.remove('magnetized');
+
             magnetCurs.moveEnable = !0;
             magnetCurs.cursor.classList.remove('magnet');
             magnetCurs.cursor.style.width = '';
@@ -120,6 +125,11 @@ magnetCurs.init = function(params) {
     }
     if (params.click) {
         document.addEventListener('click', function(e) {
+
+            var clickHandle = $( ".magnetized" ).attr('click');
+
+            console.log(clickHandle);
+
             let time = 700;
             if (typeof params.click == 'number') {
                 if (params.click > 0) {

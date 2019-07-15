@@ -11,9 +11,6 @@ body{
     border: 0;
     color:white;
 }
-.targetable:active{
-    background: #0097e6;
-}
 .menu{
     height: 100vh;
     width: 75px;

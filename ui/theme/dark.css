@@ -1,9 +1,9 @@
+*{
+    color: white;
+}
 body{
     background: url('../img/light_repeat.png') #000;
 }
 .menu{
     background: #212121;
-}
-.targetable{
-    color:#ecf0f1;
 }

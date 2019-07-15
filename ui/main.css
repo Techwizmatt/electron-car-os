@@ -1,5 +1,6 @@
 body{
-    background: #2f3640;
+    background: url('img/repeat.png') #fff;
+    background-size:20% auto;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -10,14 +11,14 @@ body{
     outline: none;
     background: #00a8ff;
     border: 0;
-    color:white;
+    color:#ecf0f1;
 }
 .menu{
     float:left;
     height: 100vh;
     width: 75px;
     padding:0 15px;
-    background: rgba(45, 52, 54,1.0);
+    background: #ecf0f1;
 }
 .menu ul{
     list-style: none;

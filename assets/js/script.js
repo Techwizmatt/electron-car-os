@@ -58,22 +58,26 @@ object_watch.runtime();
 
 $(function()
 {
+    // Default internal cache data
+    internal_cache.page = "";
     loadContent('overview');
 });
 
 function loadContent(page)
 {
-    $('.content').fadeOut(300);
-    connect($('.content'), "test");
-    setTimeout(function()
+    if(internal_cache.page != page)
     {
-        $('.content').load('pages/' + page + '.html', function()
+        $('.content').fadeOut(300);
+        setTimeout(function()
         {
-            magnetCurs.refresh();
-
-            $('.content').fadeIn(300);
-        });
-    }, 300);
+            $('.content').load('pages/' + page + '.html', function()
+            {
+                magnetCurs.refresh();
+                internal_cache.page = page;
+                $('.content').fadeIn(300);
+            });
+        }, 300);
+    }
 }
 
 function toggleWarning()

@@ -72,3 +72,9 @@ function loadContent(page)
         });
     }, 300);
 }
+
+function toggleWarning()
+{
+    $('.warning').fadeToggle(300);
+    magnetCurs.refresh();
+}

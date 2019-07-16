@@ -66,3 +66,34 @@ body{
     height: auto;
     padding: 5px;
 }
+.warning{
+    position: absolute;
+    z-index: 100;
+    width: 50vw;
+    height: 50vh;
+    left: 50%;
+    top: 50%;
+    margin: -25vh -25vw;
+    border: 0;
+    border-radius: 15px;
+    background: #e74c3c;
+    text-align: center;
+    display: none;
+}
+.warning h1{
+    margin: 0;
+    font-size: 50px;
+}
+.warning .message{
+    margin: 20px;
+    font-size: 20px;
+}
+.warning button{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 60px);
+    width: 100px;
+    font-size: 30px;
+    font-family: sf-bold;
+    margin: 10px;
+}

@@ -10,7 +10,7 @@
     <script src="ui/jquery-3.4.1.min.js"></script>
     <script>if (window.module) module = window.module;</script>
 
-    <link rel="stylesheet" href="ui/theme/dark.css">
+    <link rel="stylesheet" href="ui/theme/light.css">
 </head>
 <body>
     <div class="menu">
@@ -25,6 +25,11 @@
     <!--    Content area -->
     </div>
 </body>
+<div class="warning" >
+    <h1 class="bold" >Warning</h1>
+    <div class="message">You do not have access to this at the moment, Stop vehicle to continue.</div>
+    <button class="targetable" click="toggleWarning()" >Okay</button>
+</div>
 
 <!-- scripts -->
 <script src="mouse/magnetCurs.js"></script>

@@ -85,7 +85,7 @@ magnetCurs.init = function(params) {
             var carSpeed = 0;
 
             if($( ".magnetized" ).attr('drive-danger') == "" && carSpeed >= 5){
-                alert("DANGER");
+                toggleWarning()
             } else {
                 eval(clickHandle);
             }
@@ -178,6 +178,7 @@ magnetCurs.error = function(string) {
 
 
 magnetCurs.refresh = function(){
+    document.exitPointerLock();
     magnetCurs.mouseListener();
 }
 

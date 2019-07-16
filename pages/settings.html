@@ -106,15 +106,20 @@
 </div>
 <script>
     $(function(){
-        $(document).on('theme', function(e, v){
-            console.log(v)
-        });
+        if (settings.theme == "dark") {
+            $('#theme-bulb').removeClass('dark-bulb');
 
-        console.log(window.settings.theme);
-
+        } else {
+            $('#theme-bulb').addClass('dark-bulb')
+        }
     });
 
     function toggleTheme() {
-        $('#theme-bulb').toggleClass('dark-bulb');
+        if(settings.theme == "light"){
+            settings.theme = "dark";
+        } else {
+            settings.theme = "light";
+        }
     }
+
 </script>

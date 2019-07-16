@@ -90,9 +90,6 @@ magnetCurs.init = function(params) {
                 eval(clickHandle);
             }
 
-
-
-
             let time = 700;
             if (typeof params.click == 'number') {
                 if (params.click > 0) {

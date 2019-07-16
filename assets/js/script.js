@@ -76,20 +76,6 @@ function loadContent(page)
     }, 300);
 }
 
-function connect(element, variable)
-{
-    $(element).html(settings[variable]);
-    if(typeof internal_cache["connections"] == "undefined")
-    {
-        internal_cache["connections"] = {};
-    }
-    if(typeof internal_cache.connections[variable] == "undefined")
-    {
-        internal_cache.connections[variable] = [];
-    }
-    internal_cache.connections[variable].push(element);
-}
-
 function toggleWarning()
 {
     $('.warning').fadeToggle(300);

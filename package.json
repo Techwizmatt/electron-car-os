@@ -16,6 +16,7 @@
     "electron-rebuild": "^1.8.4"
   },
   "dependencies": {
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "geolocation": "^0.2.0"
   }
 }

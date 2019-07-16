@@ -1,4 +1,6 @@
 const fs = require('fs');
+const bluetooth = require('node-bluetooth');
+
 const settings_file = "data/settings.car";
 let settings = {};
 let internal_cache = {};

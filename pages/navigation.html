@@ -1,8 +1,31 @@
-<div id='map' style='width: 400px; height: 300px;'></div>
+<style>
+.mapboxgl-canvas
+{
+    width:100% !important;
+    height:100% !important;
+}
+.mapboxgl-ctrl-bottom-left
+{
+    display:none;
+}
+.mapboxgl-ctrl-bottom-right
+{
+    display:none;
+}
+</style>
+
+<div id='map' style="position:absolute;left:105px;top:0px;width:calc(100% - 105px);height:100%;"></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fyb3MiLCJhIjoiY2p5NjhkdDdyMGViODNsbGVtMGkzeGNhdyJ9.RREZgaJC_f5lmLI9KS9znQ';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
+        style: 'mapbox://styles/mapbox/streets-v10',
+        center: [-122.662323, 45.523751], // starting position
+        zoom: 12
     });
+
+    map.addControl(new mapboxgl.NavigationControl({position: 'top-right'}));
+
+    var canvas = map.getCanvasContainer();
+    var start = [0, 0];
 </script>

@@ -1,15 +1,111 @@
 <style>
-    .light{
-
+    h1{
+        margin: 8px;
+        padding: 5px;
+        font-size: 40px !important;
     }
-    .dark{
-
+    .settings{
+        display: inline-block;
+        width: 100%;
+    }
+    .row {
+        width: auto;
+        margin: 0 25px;
+    }
+    .left-row{
+        float:left;
+    }
+    .right-row{
+        float:right;
+    }
+    .setting{
+        width: 100%;
+        height: auto;
+        border: 0;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 5px;
+        display: inline-block;
+        max-width: 300px;
+    }
+    .setting h3{
+        margin:0;
+        float:left;
+    }
+    .setting .action{
+        float:right;
+    }
+    .action button{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    .light-bulb i, .light-bulb{
+        background: #FFF;
+        color: #000;
+    }
+    .dark-bulb i, .dark-bulb{
+        background: #212121 !important;
+        color: #FFF !important;
     }
 </style>
 <div class="settings">
-    <div class="appearance">
-        <h3>Appearance</h3>
-        <button class="targetable" click="alert('Light')" >Light</button>
-        <button class="targetable" click="alert('Dark')" >Dark</button>
+    <h1 class="bold" >Settings</h1>
+    <div class="left-row row">
+        <div class="setting default-color">
+            <h3>Theme</h3>
+            <span class="action" >
+                <button id="theme-bulb" class="targetable light-bulb" click="toggleTheme()" ><i class="fas fa-lightbulb"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Size</h3>
+            <span class="action" >
+                <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
+                <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Cursor speed</h3>
+            <span class="action" >
+                <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
+                <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Magnetivity</h3>
+            <span class="action" >
+                <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
+                <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Driver safety</h3>
+            <span class="action" >
+                <button id="driver-safety" class="targetable" click="" ><i class="fas fa-hard-hat"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Scope</h3>
+            <span class="action" >
+                <button class="targetable" click="" style="width: 100px" >Imperial</button>
+            </span>
+        </div>
+    </div>
+    <div class="right-row row">
     </div>
 </div>
+<script>
+    $(function(){
+        $(document).on('theme', function(e, v){
+            console.log(v)
+        });
+
+        console.log(window.settings.theme);
+
+    });
+
+    function toggleTheme() {
+        $('#theme-bulb').toggleClass('dark-bulb');
+    }
+</script>

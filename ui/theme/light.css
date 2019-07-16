@@ -4,3 +4,7 @@ body{
 .menu{
     background: #ecf0f1;
 }
+.default-color{
+    background:  #ecf0f1;
+    color: #fff;
+}

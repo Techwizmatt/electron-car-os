@@ -9,6 +9,7 @@
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="ui/jquery-3.4.1.min.js"></script>
     <script>if (window.module) module = window.module;</script>
+
     <link rel="stylesheet" href="ui/theme/dark.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
             <li><button class="targetable" click="loadContent('overview');" ><i class="fas fa-road"></i></button></li>
             <li><button class="targetable" click="loadContent('navigation');" ><i class="fas fa-map-marked-alt"></i></button></li>
             <li><button class="targetable" click="loadContent('entertainment');" ><i class="fas fa-play"></i></button></li>
-            <li><button class="targetable" click="loadContent('settings')" ><i class="fas fa-cog"></i></button></li>
+            <li><button class="targetable" click="loadContent('settings')" drive-danger ><i class="fas fa-cog"></i></button></li>
         </ul>
     </div>
     <div class="content" >

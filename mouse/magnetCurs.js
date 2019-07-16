@@ -20,7 +20,7 @@ magnetCurs.init = function(params) {
     }
     magnetCurs.targetable_list = document.getElementsByClassName('targetable');
     magnetCurs.moveEnable = !0;
-    magnetCurs.sens = 10; //Magnetivety level
+    magnetCurs.sens = 12; //Magnetivety level
     magnetCurs.attached = false;
     magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
     document.addEventListener('mousemove', function(e) {
@@ -82,7 +82,15 @@ magnetCurs.init = function(params) {
 
             var clickHandle = $( ".magnetized" ).attr('click');
 
-            console.log(eval(clickHandle));
+            var carSpeed = 0;
+
+            if($( ".magnetized" ).attr('drive-danger') == "" && carSpeed >= 5){
+                alert("DANGER");
+            } else {
+                eval(clickHandle);
+            }
+
+
 
 
             let time = 700;

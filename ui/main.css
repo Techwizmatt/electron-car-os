@@ -1,9 +1,31 @@
+@font-face {
+    font-family: sf-reg;
+    src: url('fonts/sf/regular.otf');
+}
+@font-face {
+    font-family: sf-thin;
+    src: url('fonts/sf/thin.otf');
+}
+@font-face {
+    font-family: sf-bold;
+    src: url('fonts/sf/bold.otf');
+}
 body{
     background-size:20% auto !important;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background: white;
+    display: block;
+}
+*{
+    font-family: sf-reg;
+}
+.bold{
+    font-family: sf-bold;
+}
+.thin{
+    font-family: sf-thin;
 }
 .targetable{
     padding: 8px;
@@ -40,7 +62,7 @@ body{
 }
 .content{
     float:left;
-    width: auto;
+    width: calc(100vw - 120px);
     height: auto;
     padding: 5px;
 }

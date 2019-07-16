@@ -54,6 +54,12 @@
         background: #212121 !important;
         color: #FFF !important;
     }
+    .on{
+        background:#2ecc71;
+    }
+    .off{
+        background: #e74c3c !important;
+    }
 </style>
 <div class="settings">
     <h1 class="bold" >Settings</h1>
@@ -88,13 +94,13 @@
         <div class="setting default-color">
             <h3>Driver safety</h3>
             <span class="action" >
-                <button id="driver-safety" class="targetable" click="" ><i class="fas fa-hard-hat"></i></button>
+                <button id="driver-safety" class="targetable on" click="toggleSafety();" ><i class="fas fa-hard-hat"></i></button>
             </span>
         </div>
         <div class="setting default-color">
             <h3>Scope</h3>
             <span class="action" >
-                <button class="targetable" click="" style="width: 100px" >Imperial</button>
+                <button id="scope" class="targetable" click="toggleScope();" style="width: 100px" >Imperial</button>
             </span>
         </div>
     </div>
@@ -112,6 +118,18 @@
         } else {
             $('#theme-bulb').addClass('dark-bulb')
         }
+
+        if (settings.safety) {
+            $('#driver-safety').removeClass('off');
+        } else {
+            $('#driver-safety').addClass('off');
+        }
+
+        if (settings.scope == "imperial") {
+            $('#scope').text('Imperial');
+        } else {
+            $('#scope').text('Metric');
+        }
     });
 
     function toggleTheme() {
@@ -119,6 +137,22 @@
             settings.theme = "dark";
         } else {
             settings.theme = "light";
+        }
+    }
+
+    function toggleSafety(){
+        if (settings.safety) {
+            settings.safety = false;
+        } else {
+            settings.safety = true;
+        }
+    }
+
+    function toggleScope() {
+        if(settings.scope == "imperial"){
+            settings.scope = "metric";
+        } else {
+            settings.scope = "imperial";
         }
     }
 

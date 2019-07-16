@@ -48,7 +48,7 @@ var object_watch = {
             })
             object_watch.cache = JSON.parse(JSON.stringify(settings));
         }
-        setTimeout(object_watch.runtime, 10);
+        setTimeout(object_watch.runtime, 100);
     }
 }
 

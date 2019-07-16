@@ -1,9 +1,31 @@
+@font-face {
+    font-family: sf-reg;
+    src: url('fonts/sf/regular.otf');
+}
+@font-face {
+    font-family: sf-thin;
+    src: url('fonts/sf/thin.otf');
+}
+@font-face {
+    font-family: sf-bold;
+    src: url('fonts/sf/bold.otf');
+}
 body{
     background-size:20% auto !important;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background: white;
+    display: block;
+}
+*{
+    font-family: sf-reg;
+}
+.bold{
+    font-family: sf-bold;
+}
+.thin{
+    font-family: sf-thin;
 }
 .targetable{
     padding: 8px;
@@ -40,7 +62,38 @@ body{
 }
 .content{
     float:left;
-    width: auto;
+    width: calc(100vw - 120px);
     height: auto;
     padding: 5px;
+}
+.warning{
+    position: absolute;
+    z-index: 100;
+    width: 50vw;
+    height: 50vh;
+    left: 50%;
+    top: 50%;
+    margin: -25vh -25vw;
+    border: 0;
+    border-radius: 15px;
+    background: #e74c3c;
+    text-align: center;
+    display: none;
+}
+.warning h1{
+    margin: 0;
+    font-size: 50px;
+}
+.warning .message{
+    margin: 20px;
+    font-size: 20px;
+}
+.warning button{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 60px);
+    width: 100px;
+    font-size: 30px;
+    font-family: sf-bold;
+    margin: 10px;
 }

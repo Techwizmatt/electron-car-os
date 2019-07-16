@@ -2,8 +2,12 @@
     color: white;
 }
 body{
-    background: url('../img/light_repeat.png') #000;
+    background: url('../img/dark_repeat.png') #000;
 }
 .menu{
-    background: #212121;
+    background: #2f2f2f;
+}
+.default-color{
+    background: #2F2F2F;
+    color: white;
 }

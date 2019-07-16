@@ -66,9 +66,15 @@ function loadContent(page)
     {
         $('.content').load('pages/' + page + '.html', function()
         {
-            $('.content').fadeIn(300, function(){
-                magnetCurs.refresh();
-            });
+            magnetCurs.refresh();
+
+            $('.content').fadeIn(300);
         });
     }, 300);
+}
+
+function toggleWarning()
+{
+    $('.warning').fadeToggle(300);
+    magnetCurs.refresh();
 }

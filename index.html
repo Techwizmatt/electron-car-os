@@ -6,14 +6,14 @@
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/font-awesome/css/all.css">
         <link rel="stylesheet" href="assets/mouse/mouse.css">
-    <!--    <link rel="stylesheet" href="ui/theme/dark.css">-->
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css">
     </head>
     <body>
         
         <div class="menu">
             <ul>
                 <li><button class="targetable" click="loadContent('overview');" ><i class="fas fa-road"></i></button></li>
-                <li><button class="targetable" click="loadContent('navigation');" ><i class="fas fa-map-marked-alt"></i></button></li>
+                <li><button class="targetable" click="loadContent('navigation', true);" ><i class="fas fa-map-marked-alt"></i></button></li>
                 <li><button class="targetable" click="loadContent('entertainment');" ><i class="fas fa-play"></i></button></li>
                 <li><button class="targetable" click="loadContent('settings')" drive-danger ><i class="fas fa-cog"></i></button></li>
             </ul>
@@ -36,6 +36,7 @@
         <script src="assets/mouse/magnetCurs.js"></script>
         <script src="assets/js/script.js"></script>
         <script src="assets/js/settings.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
         <script>if (window.module) module = window.module;</script>
 
     </body>

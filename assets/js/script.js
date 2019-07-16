@@ -60,23 +60,35 @@ $(function()
 {
     // Default internal cache data
     internal_cache.page = "";
-    loadContent('overview');
+    if(typeof settings.page == "undefined")
+    {
+        settings.page = "overview";
+    }
+    loadContent(settings.page);
 });
 
-function loadContent(page)
+function loadContent(page, require_internet)
 {
     if(internal_cache.page != page)
     {
-        $('.content').fadeOut(300);
-        setTimeout(function()
+        if(typeof require_internet !== "undefined" && require_internet == true && navigator.onLine == false)
         {
-            $('.content').load('pages/' + page + '.html', function()
+            alert("Internet connection required!");
+        }
+        else
+        {
+            $('.content').fadeOut(300);
+            setTimeout(function()
             {
-                magnetCurs.refresh();
-                internal_cache.page = page;
-                $('.content').fadeIn(300);
-            });
-        }, 300);
+                $('.content').load('pages/' + page + '.html', function()
+                {
+                    magnetCurs.refresh();
+                    internal_cache.page = page;
+                    settings.page = page;
+                    $('.content').fadeIn(300);
+                });
+            }, 300);
+        }
     }
 }
 

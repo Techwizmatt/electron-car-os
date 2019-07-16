@@ -1,1 +1,8 @@
-Navigation page
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fyb3MiLCJhIjoiY2p5NjhkdDdyMGViODNsbGVtMGkzeGNhdyJ9.RREZgaJC_f5lmLI9KS9znQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+</script>

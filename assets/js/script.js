@@ -1,6 +1,8 @@
 const fs = require('fs');
-const settings_file = "./settings.car";
+const settings_file = "data/settings.car";
 let settings = {};
+let internal_cache = {};
+
 var settingsEvent = function(k, v)
 {
     console.error('Declare function window.settingsEvent(key, value){} in your code to use the realtime feature');
@@ -62,6 +64,7 @@ $(function()
 function loadContent(page)
 {
     $('.content').fadeOut(300);
+    connect($('.content'), "test");
     setTimeout(function()
     {
         $('.content').load('pages/' + page + '.html', function()
@@ -71,6 +74,20 @@ function loadContent(page)
             $('.content').fadeIn(300);
         });
     }, 300);
+}
+
+function connect(element, variable)
+{
+    $(element).html(settings[variable]);
+    if(typeof internal_cache["connections"] == "undefined")
+    {
+        internal_cache["connections"] = {};
+    }
+    if(typeof internal_cache.connections[variable] == "undefined")
+    {
+        internal_cache.connections[variable] = [];
+    }
+    internal_cache.connections[variable].push(element);
 }
 
 function toggleWarning()

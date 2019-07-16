@@ -1,14 +1,14 @@
 @font-face {
     font-family: sf-reg;
-    src: url('fonts/sf/regular.otf');
+    src: url('../fonts/sf/regular.otf');
 }
 @font-face {
     font-family: sf-thin;
-    src: url('fonts/sf/thin.otf');
+    src: url('../fonts/sf/thin.otf');
 }
 @font-face {
     font-family: sf-bold;
-    src: url('fonts/sf/bold.otf');
+    src: url('../fonts/sf/bold.otf');
 }
 body{
     background-size:20% auto !important;

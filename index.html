@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HOME</title>
-    <link rel="stylesheet" href="ui/main.css">
-    <link rel="stylesheet" href="ui/font-awesome/css/all.css">
+    <head>
+        <meta charset="UTF-8">
+        <title>HOME</title>
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/all.css">
+        <link rel="stylesheet" href="assets/mouse/mouse.css">
+    <!--    <link rel="stylesheet" href="ui/theme/dark.css">-->
+    </head>
+    <body>
+        
+        <div class="menu">
+            <ul>
+                <li><button class="targetable" click="loadContent('overview');" ><i class="fas fa-road"></i></button></li>
+                <li><button class="targetable" click="loadContent('navigation');" ><i class="fas fa-map-marked-alt"></i></button></li>
+                <li><button class="targetable" click="loadContent('entertainment');" ><i class="fas fa-play"></i></button></li>
+                <li><button class="targetable" click="loadContent('settings')" drive-danger ><i class="fas fa-cog"></i></button></li>
+            </ul>
+        </div>
 
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="ui/jquery-3.4.1.min.js"></script>
-    <script>if (window.module) module = window.module;</script>
-<!--    <link rel="stylesheet" href="ui/theme/dark.css">-->
-</head>
-<body>
-    <div class="menu">
-        <ul>
-            <li><button class="targetable" click="loadContent('overview');" ><i class="fas fa-road"></i></button></li>
-            <li><button class="targetable" click="loadContent('navigation');" ><i class="fas fa-map-marked-alt"></i></button></li>
-            <li><button class="targetable" click="loadContent('entertainment');" ><i class="fas fa-play"></i></button></li>
-            <li><button class="targetable" click="loadContent('settings')" drive-danger ><i class="fas fa-cog"></i></button></li>
-        </ul>
-    </div>
-    <div class="content" >
-    <!--    Content area -->
-    </div>
-</body>
-<div class="warning" >
-    <h1 class="bold" >Warning</h1>
-    <div class="message">You do not have access to this at the moment, Stop vehicle to continue.</div>
-    <button class="targetable" click="toggleWarning()" >Okay</button>
-</div>
+        <div class="content"></div>
 
-<!-- scripts -->
-<script src="mouse/magnetCurs.js"></script>
-<script src="ui/script.js"></script>
-<script src="ui/settings.js"></script>
-<link rel="stylesheet" href="mouse/mouse.css">
-<span class="theme" ></span>
+        <div class="warning">
+            <h1 class="bold">Warning</h1>
+            <div class="message">You do not have access to this at the moment, Stop vehicle to continue.</div>
+            <button class="targetable">Close</button>
+        </div>
 
+
+        <span class="theme"></span>
+
+        <!-- scripts -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script src="assets/jquery/jquery-3.4.1.min.js"></script>
+        <script src="assets/mouse/magnetCurs.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/settings.js"></script>
+        <script>if (window.module) module = window.module;</script>
+
+    </body>
 </html>

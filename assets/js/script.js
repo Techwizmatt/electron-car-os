@@ -1,9 +1,11 @@
 const fs = require('fs');
-const bluetooth = require('node-bluetooth');
+// const bluetooth = require('node-bluetooth');
 
 const settings_file = "data/settings.car";
 let settings = {};
-let internal_cache = {};
+let internal_cache = {
+    page:""
+};
 
 var settingsEvent = function(k, v)
 {
@@ -60,8 +62,6 @@ object_watch.runtime();
 
 $(function()
 {
-    // Default internal cache data
-    internal_cache.page = "";
     if(typeof settings.page == "undefined")
     {
         settings.page = "overview";
@@ -79,9 +79,7 @@ function loadContent(page, require_internet)
         }
         else
         {
-            $('.content').fadeOut(300);
-            setTimeout(function()
-            {
+            $('.content').fadeOut(300, function(){
                 $('.content').load('pages/' + page + '.html', function()
                 {
                     magnetCurs.refresh();
@@ -89,7 +87,7 @@ function loadContent(page, require_internet)
                     settings.page = page;
                     $('.content').fadeIn(300);
                 });
-            }, 300);
+            });
         }
     }
 }

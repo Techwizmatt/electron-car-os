@@ -73,8 +73,8 @@
         <div class="setting default-color">
             <h3>Text size</h3>
             <span class="action" >
-                <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
-                <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
+                <button class="targetable" id="settingsTextsizeMinus" click="settings.textSize -= 1;" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
+                <button class="targetable" id="settingsTextsizePlus" click="settings.textSize += 1;" ><i class="fas fa-plus-circle"></i></button>
             </span>
         </div>
         <div class="setting default-color">
@@ -85,10 +85,17 @@
             </span>
         </div>
         <div class="setting default-color">
-            <h3>Magnetivity</h3>
+            <h3>Cursor size</h3>
             <span class="action" >
                 <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
                 <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Cursor lock</h3>
+            <span class="action" >
+                <button class="targetable" id="settingsMagnetivetyMinus" click="settings.magnetivety -= 1;" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
+                <button class="targetable" id="settingsMagnetivetyPlus" click="settings.magnetivety += 1;" ><i class="fas fa-plus-circle"></i></button>
             </span>
         </div>
         <div class="setting default-color">
@@ -132,12 +139,6 @@
             <h3>Setting E</h3>
             <span class="action" >
                 <button class="untargetable" ><i class="fas"></i></button>
-            </span>
-        </div>
-        <div class="setting default-color">
-            <h3>Setting F (TEST)</h3>
-            <span class="action" >
-                <button id="ftest" class="untargetable" ><i class="fas"></i></button>
             </span>
         </div>
     </div>
@@ -190,5 +191,6 @@
             settings.scope = "imperial";
         }
     }
+
 
 </script>

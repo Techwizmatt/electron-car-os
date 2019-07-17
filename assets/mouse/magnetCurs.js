@@ -18,61 +18,11 @@ magnetCurs.init = function(params) {
         magnetCurs.pointar.style.position = "fixed"
         magnetCurs.pointar.style.pointerEvents = "none"
     }
-    magnetCurs.targetable_list = document.getElementsByClassName('targetable');
     magnetCurs.moveEnable = !0;
-    magnetCurs.sens = 12; //Magnetivety level
-    magnetCurs.attached = false;
-    magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
-    document.addEventListener('mousemove', function(e) {
-        clearTimeout(magnetCurs.timeout);
-        if (!magnetCurs.attached) {
-            document.getElementById('cursor').style.display = "block";
-            document.getElementById('pointer').style.display = "block";
-            magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
-        } else {
-            document.getElementById('cursor').style.display = "block";
+    magnetCurs.sens = 0; //Magnetivety level
 
-            var xmovement = e.movementX;
-            var ymovement = e.movementY;
-
-            if (xmovement < 0) {
-                xmovement = xmovement * -1;
-            }
-
-            if (ymovement < 0) {
-                ymovement = ymovement * -1;
-            }
-
-            if(xmovement >= magnetCurs.sens || ymovement >= magnetCurs.sens){
-                document.exitPointerLock();
-            }
-        }
-
-        if (magnetCurs.moveEnable) {
-            magnetCurs.cursor.style.left = e.clientX + 'px';
-            magnetCurs.cursor.style.top = e.clientY + 'px';
-            magnetCurs.cursor.style.transform = ""
-        } else {
-            if (params.shockable) {
-                let intensity = 5;
-                if (typeof params.shockable == 'number') {
-                    if (params.shockable > 0 && params.shockable < 5) {
-                        intensity = intensity - params.shockable
-                    } else {
-                        magnetCurs.error("spacing params need to be more than 0")
-                    }
-                } else {
-                    magnetCurs.error("shockable params need to be a number")
-                }
-                magnetCurs.cursor.style.transform = "translate(" + e.movementX / intensity + "px, " + e.movementY / intensity + "px)"
-            }
-        }
-        if (params.pointer) {
-            magnetCurs.pointar.style.left = e.clientX + 'px';
-            magnetCurs.pointar.style.top = e.clientY + 'px'
-        }
-    });
-
+    //Mouse movement listener
+    magnetCurs.mouseMoveListener();
 
     //Mouse enter and leave listener
     magnetCurs.mouseListener();
@@ -106,6 +56,61 @@ magnetCurs.init = function(params) {
             }, time)
         })
     }
+}
+
+
+magnetCurs.mouseMoveListener = function(){
+    magnetCurs.attached = false;
+    magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
+    document.addEventListener('mousemove', function(e) {
+        clearTimeout(magnetCurs.timeout);
+        if (!magnetCurs.attached) {
+            document.getElementById('cursor').style.display = "block";
+            document.getElementById('pointer').style.display = "block";
+            magnetCurs.timeout = setTimeout(function () { $("#cursor").fadeOut(500); $("#pointer").fadeOut(500);}, 2500);
+        } else {
+            document.getElementById('cursor').style.display = "block";
+
+            var xmovement = e.movementX;
+            var ymovement = e.movementY;
+
+            if (xmovement < 0) {
+                xmovement = xmovement * -1;
+            }
+
+            if (ymovement < 0) {
+                ymovement = ymovement * -1;
+            }
+
+            if(xmovement >= magnetCurs.sens || ymovement >= magnetCurs.sens){
+                document.exitPointerLock();
+            }
+        }
+
+        if (magnetCurs.moveEnable) {
+            magnetCurs.cursor.style.left = e.clientX + 'px';
+            magnetCurs.cursor.style.top = e.clientY + 'px';
+            magnetCurs.cursor.style.transform = ""
+        } else {
+            if (magnetCurs.params.shockable) {
+                let intensity = 5;
+                if (typeof magnetCurs.params.shockable == 'number') {
+                    if (magnetCurs.params.shockable > 0 && magnetCurs.params.shockable < 5) {
+                        intensity = intensity - magnetCurs.params.shockable
+                    } else {
+                        magnetCurs.error("spacing params need to be more than 0")
+                    }
+                } else {
+                    magnetCurs.error("shockable params need to be a number")
+                }
+                magnetCurs.cursor.style.transform = "translate(" + e.movementX / intensity + "px, " + e.movementY / intensity + "px)"
+            }
+        }
+        if (magnetCurs.params.pointer) {
+            magnetCurs.pointar.style.left = e.clientX + 'px';
+            magnetCurs.pointar.style.top = e.clientY + 'px'
+        }
+    });
 }
 
 magnetCurs.mouseListener = function(){
@@ -180,18 +185,29 @@ magnetCurs.refresh = function(){
     magnetCurs.mouseListener();
 }
 
-magnetCurs.toggleTargetablity = function(id){
-    if ($(id).hasClass('targetable')) {
-        $(id).removeClass('targetable');
-        $(id).addClass('untargetable');
-
-        $(id).replaceWith($(id).clone());
-
-    } else if ($(id).hasClass('untargetable')) {
+magnetCurs.enableTargetablity = function(id){
+    if ($(id).hasClass('untargetable')) {
         $(id).removeClass('untargetable');
         $(id).addClass('targetable');
     }
+    magnetCurs.refresh();
+}
 
+magnetCurs.disableTargetablity = function(id){
+    if ($(id).hasClass('targetable')) {
+        $(id).removeClass('targetable');
+        $(id).addClass('untargetable');
+        $(id).replaceWith($(id).clone());
+    }
+    if ($(id).hasClass('magnetized')) {
+        $(id).removeClass('magnetized');
+    }
+    magnetCurs.refresh();
+}
+
+magnetCurs.setMagnetivety = function(v){
+    magnetCurs.sens = v;
+    magnetCurs.mouseMoveListener();
     magnetCurs.refresh();
 }
 

@@ -67,6 +67,7 @@ $(function()
         settings.page = "overview";
     }
     loadContent(settings.page);
+
 });
 
 function loadContent(page, require_internet)

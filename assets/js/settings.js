@@ -23,4 +23,25 @@ $(function(){
             $('#scope').text('Metric');
         }
     });
+    $(document).on('textSize', function(e, v){
+        if(v <= 1){
+            magnetCurs.disableTargetablity("#settingsTextsizeMinus");
+        } else if(v >= 15){
+            magnetCurs.disableTargetablity("#settingsTextsizePlus");
+        } else {
+            magnetCurs.enableTargetablity("#settingsTextsizeMinus");
+            magnetCurs.enableTargetablity("#settingsTextsizePlus");
+        }
+    });
+    $(document).on('magnetivety', function(e, v){
+        if(v <= 1){
+            magnetCurs.disableTargetablity("#settingsMagnetivetyMinus");
+        } else if(v >= 25){
+            magnetCurs.disableTargetablity("#settingsMagnetivetyPlus");
+        } else {
+            magnetCurs.enableTargetablity("#settingsMagnetivetyMinus");
+            magnetCurs.enableTargetablity("#settingsMagnetivetyPlus");
+        }
+        magnetCurs.setMagnetivety(v);
+    });
 });

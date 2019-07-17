@@ -35,6 +35,14 @@ body{
     border: 0;
     color: white;
 }
+.untargetable{
+    background: #74caff !important;
+    padding: 8px;
+    border-radius: 8px;
+    outline: none;
+    border: 0;
+    color: white;
+}
 .menu{
     float:left;
     height: 100vh;

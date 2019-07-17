@@ -10,19 +10,19 @@
         bottom: 0;
         margin: 2px;
     }
+    .car_info h5{
+        margin:0;
+        padding:0;
+    }
     .settings{
         display: inline-block;
         width: 100%;
+        margin-left: 25px;
     }
     .row {
         width: auto;
-        margin: 0 25px;
-    }
-    .left-row{
-        float:left;
-    }
-    .right-row{
-        float:right;
+        margin: 0;
+        float: left;
     }
     .setting{
         width: 100%;
@@ -61,9 +61,9 @@
         background: #e74c3c !important;
     }
 </style>
+<h1 class="bold" >Settings</h1>
 <div class="settings">
-    <h1 class="bold" >Settings</h1>
-    <div class="left-row row">
+    <div class="row">
         <div class="setting default-color">
             <h3>Theme</h3>
             <span class="action" >
@@ -71,7 +71,7 @@
             </span>
         </div>
         <div class="setting default-color">
-            <h3>Size</h3>
+            <h3>Text size</h3>
             <span class="action" >
                 <button class="targetable" click="" style="margin-right: 10px;" ><i class="fas fa-minus-circle"></i></button>
                 <button class="targetable" click="" ><i class="fas fa-plus-circle"></i></button>
@@ -103,8 +103,43 @@
                 <button id="scope" class="targetable" click="toggleScope();" style="width: 100px" >Imperial</button>
             </span>
         </div>
-    </div>
-    <div class="right-row row">
+
+        <div class="setting default-color">
+            <h3>Setting A</h3>
+            <span class="action" >
+                <button class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Setting B</h3>
+            <span class="action" >
+                <button class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Setting C</h3>
+            <span class="action" >
+                <button class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Setting D</h3>
+            <span class="action" >
+                <button class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Setting E</h3>
+            <span class="action" >
+                <button class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
+        <div class="setting default-color">
+            <h3>Setting F (TEST)</h3>
+            <span class="action" >
+                <button id="ftest" class="untargetable" ><i class="fas"></i></button>
+            </span>
+        </div>
     </div>
     <div class="car_info">
         <h5>VIN: 1N4BL3AP7FC237322</h5>

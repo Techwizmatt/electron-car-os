@@ -175,8 +175,24 @@ magnetCurs.error = function(string) {
 
 
 magnetCurs.refresh = function(){
+    magnetCurs.targetable_list = "";
     document.exitPointerLock();
     magnetCurs.mouseListener();
+}
+
+magnetCurs.toggleTargetablity = function(id){
+    if ($(id).hasClass('targetable')) {
+        $(id).removeClass('targetable');
+        $(id).addClass('untargetable');
+
+        $(id).replaceWith($(id).clone());
+
+    } else if ($(id).hasClass('untargetable')) {
+        $(id).removeClass('untargetable');
+        $(id).addClass('targetable');
+    }
+
+    magnetCurs.refresh();
 }
 
 magnetCurs.init({

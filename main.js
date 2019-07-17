@@ -11,7 +11,7 @@ function createWindow () {
         webPreferences: {
             nodeIntegration: true
         }
-    })
+    });
 
     // Load the home page.
     win.loadFile('index.html')

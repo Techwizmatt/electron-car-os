@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12caacd4-e4b3-405d-812b-ae5659bb2d3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/mouse/magnetCurs.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mouse/magnetCurs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/mouse/mouse.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mouse/mouse.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/settings.car" beforeDir="false" afterPath="$PROJECT_DIR$/data/settings.car" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,15 +38,19 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/mouse/mouse.css">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/mouse/magnetCurs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="432">
               <caret line="207" column="40" lean-forward="true" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
             </state>
           </provider>
@@ -161,6 +163,7 @@
         <option value="$PROJECT_DIR$/pages/settings.html" />
         <option value="$PROJECT_DIR$/data/settings.car" />
         <option value="$PROJECT_DIR$/assets/mouse/magnetCurs.js" />
+        <option value="$PROJECT_DIR$/assets/mouse/mouse.css" />
       </list>
     </option>
   </component>
@@ -269,12 +272,12 @@
       <workItem from="1563139716414" duration="62000" />
       <workItem from="1563139881625" duration="190000" />
       <workItem from="1563140344983" duration="17293000" />
-      <workItem from="1563312937640" duration="12922000" />
+      <workItem from="1563312937640" duration="14651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62510000" />
+    <option name="totallyTimeSpent" value="64239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="826" extended-state="6" />
@@ -400,9 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/mouse/mouse.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/img/jeep.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -457,8 +457,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/mouse/magnetCurs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="432">
           <caret line="207" column="40" lean-forward="true" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/mouse/mouse.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
         </state>
       </provider>
     </entry>

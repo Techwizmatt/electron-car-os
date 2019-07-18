@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "geolocation": "^0.2.0"
+    "geolocation": "^0.2.0",
+    "serial-obd": "^0.2.2"
   }
 }

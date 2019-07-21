@@ -86,3 +86,11 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+/out
+
+out/
+
+dist/
+
+/dist

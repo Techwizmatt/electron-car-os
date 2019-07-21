@@ -1,11 +1,15 @@
 {
   "name": "obd-car-os",
   "version": "1.0.0",
-  "description": "",
+  "description": "OBD CAROS",
+  "ProductDescription": "OBD CAROS",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-packager ./ CAROS --target=deb --platform=linux --arch=armv7l  --overwrite --out dist/ --executableName=obd-car-os",
+    "compile": "electron-installer-debian --src dist/CAROS-linux-armv7l/ --dest dist/CAROS-INSTALLERS/ --arch armv7l",
+    "rebuild": "electron-rebuild -f -w"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +17,7 @@
   "devDependencies": {
     "electron": "^4.0.3",
     "electron-builder": "^20.38.5",
+    "electron-packager": "^14.0.1",
     "electron-rebuild": "^1.8.4"
   },
   "dependencies": {

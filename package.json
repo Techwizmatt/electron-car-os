@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "dist": "electron-packager ./ CAROS --target=deb --platform=linux --arch=armv7l  --overwrite --out dist/ --executableName=obd-car-os",
-    "compile": "electron-installer-debian --src dist/CAROS-linux-armv7l/ --dest dist/CAROS-INSTALLERS/ --arch armv7l",
+    "pi-upload": "zip -FSr dist/CAROS.zip dist/CAROS-linux-armv7l/ && scp /Volumes/Data/Personal/electron-car-os/dist/CAROS.zip pi@192.168.86.26:/home/pi && ssh pi@192.168.86.26 'unzip -o /home/pi/CAROS.zip'",
+    "full-pi-upload": "electron-packager ./ CAROS --target=deb --platform=linux --arch=armv7l  --overwrite --out dist/ --executableName=obd-car-os && zip -FSr dist/CAROS.zip dist/CAROS-linux-armv7l/ && scp /Volumes/Data/Personal/electron-car-os/dist/CAROS.zip pi@192.168.86.26:/home/pi && ssh pi@192.168.86.26 'unzip -o /home/pi/CAROS.zip'",
     "rebuild": "electron-rebuild -f -w"
   },
   "keywords": [],

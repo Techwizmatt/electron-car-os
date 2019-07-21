@@ -20,11 +20,13 @@ function createWindow () {
 
     // Load the home page.
     win.loadFile('index.html')
-    win.toggleDevTools()
+    win.toggleDevTools();
 
 }
 
 app.on('ready', createWindow);
+
+console.log(process.versions);
 
 
 serialOBDReader.on('dataReceived', function (data) {

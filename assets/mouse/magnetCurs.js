@@ -1,7 +1,11 @@
-const {ipcRenderer} = require('electron');
+const {webFrame} = require('electron');
 
 let magnetCurs = [];
 magnetCurs.init = function(params) {
+
+    //Changes the original 800x480 res. to 1024x600 since aspect ratio is 16:9
+    webFrame.setZoomLevel(1);
+
     if (!params) {
         params = {}
     }

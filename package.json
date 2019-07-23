@@ -22,6 +22,7 @@
     "electron-rebuild": "^1.8.4"
   },
   "dependencies": {
+    "electron-log": "^3.0.6",
     "fs": "0.0.1-security",
     "geolocation": "^0.2.0",
     "serial-obd": "^0.2.2"

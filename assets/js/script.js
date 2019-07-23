@@ -1,7 +1,10 @@
+const { ipcRenderer } = require('electron');
 const fs = require('fs');
 // const bluetooth = require('node-bluetooth');
+var loc = window.location.pathname;
+var dir = loc.substring(0, loc.lastIndexOf('/'));
 
-const settings_file = "data/settings.car";
+const settings_file = dir + "/data/settings.car";
 let settings = {};
 let internal_cache = {
     page:""
@@ -39,6 +42,9 @@ var object_watch = {
     cache: settings,
     runtime: function()
     {
+        // Since electron is sorta stupid, The listening var event here will request OBD data from the main thread.
+        ipcRenderer.send('request-obd-data', '');
+
         if(JSON.stringify(settings) != JSON.stringify(object_watch.cache))
         {
             jQuery.each(settings, function(k, v)

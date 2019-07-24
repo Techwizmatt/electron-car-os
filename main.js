@@ -38,10 +38,10 @@ function createWindow () {
     // win.setFullScreen(true);
     // win.setKiosk(true);
 
-    setTimeout(function(){
-        //This for some reason likes to crash on RPI , So I need it in a timeout to be able to see the error.
-        serialOBDReader.connect();
-    }, 1000);
+    // setTimeout(function(){
+    //     //This for some reason likes to crash on RPI , So I need it in a timeout to be able to see the error.
+    //     serialOBDReader.connect();
+    // }, 1000);
 
 }
 

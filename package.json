@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "dist": "electron-packager ./ CAROS --target=deb --platform=linux --arch=armv7l  --overwrite --out dist/ --executableName=obd-car-os",
-    "pi-upload": "zip -FSr dist/CAROS.zip dist/CAROS-linux-armv7l/ && scp /Volumes/Data/Personal/electron-car-os/dist/CAROS.zip pi@192.168.86.26:/home/pi && ssh pi@192.168.86.26 'unzip -o /home/pi/CAROS.zip'",
-    "full-pi-upload": "electron-packager ./ CAROS --target=deb --platform=linux --arch=armv7l  --overwrite --out dist/ --executableName=obd-car-os && zip -FSr dist/CAROS.zip dist/CAROS-linux-armv7l/ && scp /Volumes/Data/Personal/electron-car-os/dist/CAROS.zip pi@192.168.86.26:/home/pi && ssh pi@192.168.86.26 'unzip -o /home/pi/CAROS.zip'",
+    "upload": "zip -r /dist/OBD-CAR-OS.zip / -x *node_modules/*",
     "rebuild": "electron-rebuild -f -w"
   },
   "keywords": [],
@@ -25,6 +24,7 @@
     "electron-log": "^3.0.6",
     "fs": "0.0.1-security",
     "geolocation": "^0.2.0",
-    "serial-obd": "^0.2.2"
+    "serial-obd": "^0.2.2",
+    "webworker-threads": "^0.7.17"
   }
 }
